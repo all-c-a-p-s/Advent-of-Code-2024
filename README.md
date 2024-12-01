@@ -4,6 +4,6 @@
 
 My solutions to Advent of code 2023.
 
-Done in various languages, for fun.
+Done in Rust, for fun.
 
 AOC: [Advent of Code](https://adventofcode.com/)
