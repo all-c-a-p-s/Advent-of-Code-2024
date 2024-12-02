@@ -1,11 +1,11 @@
-const INPUT: &str = "./input01.txt";
+const INPUT: &str = include_str!("./input01.txt");
 
 fn count_appearances(t: i32, v: &[i32]) -> i32 {
     v.iter().fold(0, |acc, x| acc + if *x == t { 1 } else { 0 })
 }
 
 fn get_lists() -> (Vec<i32>, Vec<i32>) {
-    let f = std::fs::read_to_string(INPUT).unwrap();
+    let f = String::from(INPUT);
     let lines: Vec<String> = f.lines().map(|l| l.to_string()).collect();
 
     let (mut first_list, mut second_list) = (Vec::new(), Vec::new());

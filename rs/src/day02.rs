@@ -1,4 +1,4 @@
-const INPUT: &str = "./input02.txt";
+const INPUT: &str = include_str!("./input02.txt");
 
 fn is_increasing(v: &Vec<i32>) -> bool {
     for i in 0..v.len() - 1 {
@@ -28,7 +28,7 @@ fn is_safe(l: &Vec<i32>) -> bool {
 }
 
 fn get_data() -> Vec<Vec<i32>> {
-    let f = std::fs::read_to_string(INPUT).unwrap();
+    let f = String::from(INPUT);
     let data: Vec<Vec<i32>> = f
         .lines()
         .map(|x| {
@@ -63,7 +63,7 @@ fn is_within_tolerance(l: &Vec<i32>) -> bool {
 pub fn part_two() -> i32 {
     let data = get_data();
     data.iter()
-        .filter(|x| is_within_tolerance(*x) || is_safe(*x))
+        .filter(|x| is_within_tolerance(*x))
         .map(|x| x.clone())
         .collect::<Vec<Vec<i32>>>()
         .len() as i32

@@ -2,6 +2,7 @@ use std::io::{stdout, Write};
 use std::time::Instant;
 
 mod day01;
+mod day02;
 
 fn take_int() -> i32 {
     let mut input = String::new();
@@ -25,6 +26,9 @@ fn main() {
     match (day, part) {
         (1, 1) => println!("{}", day01::part_one()),
         (1, 2) => println!("{}", day01::part_two()),
+        (2, 1) => println!("{}", day02::part_one()),
+        (2, 2) => println!("{}", day02::part_two()),
+
         _ => panic!("sorry not implemented yet"),
     };
 
