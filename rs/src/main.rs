@@ -3,6 +3,7 @@ use std::time::Instant;
 
 mod day01;
 mod day02;
+mod day03;
 
 fn take_int() -> i32 {
     let mut input = String::new();
@@ -28,7 +29,8 @@ fn main() {
         (1, 2) => println!("{}", day01::part_two()),
         (2, 1) => println!("{}", day02::part_one()),
         (2, 2) => println!("{}", day02::part_two()),
-
+        (3, 1) => println!("{}", day03::part_one()),
+        (3, 2) => println!("{}", day03::part_two()),
         _ => panic!("sorry not implemented yet"),
     };
 

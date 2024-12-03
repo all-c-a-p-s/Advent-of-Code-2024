@@ -1,6 +1,6 @@
 const INPUT: &str = include_str!("./input02.txt");
 
-fn is_increasing(v: &Vec<i32>) -> bool {
+fn is_increasing(v: &[i32]) -> bool {
     for i in 0..v.len() - 1 {
         if v[i + 1] <= v[i] {
             return false;
@@ -9,7 +9,7 @@ fn is_increasing(v: &Vec<i32>) -> bool {
     true
 }
 
-fn max_diff(v: &Vec<i32>) -> i32 {
+fn max_diff(v: &[i32]) -> i32 {
     v.iter()
         .take(v.len() - 1)
         .enumerate()
@@ -23,7 +23,7 @@ fn max_diff(v: &Vec<i32>) -> i32 {
 }
 
 fn is_safe(l: &Vec<i32>) -> bool {
-    (is_increasing(l) || is_increasing(&l.iter().rev().map(|x| x.to_owned()).collect()))
+    (is_increasing(l) || is_increasing(&l.iter().rev().map(|x| x.to_owned()).collect::<Vec<i32>>()))
         && max_diff(l) <= 3
 }
 
@@ -44,27 +44,27 @@ pub fn part_one() -> i32 {
     let data = get_data();
 
     data.iter()
-        .filter(|x| is_safe(*x))
-        .map(|x| x.clone())
+        .filter(|x| is_safe(x))
+        .cloned()
         .collect::<Vec<Vec<i32>>>()
         .len() as i32
 }
 
-fn is_within_tolerance(l: &Vec<i32>) -> bool {
+fn is_within_tolerance(l: &[i32]) -> bool {
     for rm in 0..l.len() {
         let v = [&l[0..rm], &l[rm + 1..]].concat();
         if is_safe(&v) {
             return true;
         }
     }
-    return false;
+    false
 }
 
 pub fn part_two() -> i32 {
     let data = get_data();
     data.iter()
-        .filter(|x| is_within_tolerance(*x))
-        .map(|x| x.clone())
+        .filter(|x| is_within_tolerance(x))
+        .cloned()
         .collect::<Vec<Vec<i32>>>()
         .len() as i32
 }
