@@ -23,9 +23,13 @@ fn score(target: i128, nums: &[i128]) -> i128 {
 }
 
 fn concat(x: i128, y: i128) -> i128 {
-    (format!("{}", x) + format!("{}", y).as_str())
-        .parse::<i128>()
-        .unwrap()
+    let mut res = x;
+    let mut temp = y;
+    while temp > 0 {
+        res *= 10;
+        temp /= 10;
+    }
+    res + y
 }
 
 fn score_part_two(target: i128, nums: &[i128]) -> i128 {
