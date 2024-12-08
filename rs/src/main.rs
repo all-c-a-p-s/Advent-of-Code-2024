@@ -5,6 +5,10 @@ mod day01;
 mod day02;
 mod day03;
 mod day04;
+mod day05;
+mod day06;
+mod day07;
+mod day08;
 
 fn take_int() -> i32 {
     let mut input = String::new();
@@ -34,6 +38,14 @@ fn main() {
         (3, 2) => println!("{}", day03::part_two()),
         (4, 1) => println!("{}", day04::part_one()),
         (4, 2) => println!("{}", day04::part_two()),
+        (5, 1) => println!("{}", day05::part_one()),
+        (5, 2) => println!("{}", day05::part_two()),
+        (6, 1) => println!("{}", day06::part_one()),
+        (6, 2) => println!("{}", day06::part_two()),
+        (7, 1) => println!("{}", day07::part_one()),
+        (7, 2) => println!("{}", day07::part_two()),
+        (8, 1) => println!("{}", day08::part_one()),
+        (8, 2) => println!("{}", day08::part_two()),
         _ => panic!("sorry not implemented yet"),
     };
 
